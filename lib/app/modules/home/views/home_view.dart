@@ -13,9 +13,27 @@ class HomeView extends GetView<HomeController> {
         centerTitle: true,
       ),
       body: Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(
+              'HomeView is working',
+              style: TextStyle(fontSize: 20),
+            ),
+            Obx(
+              () => Text(
+                'Count: ${controller.count.value}',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                debugPrint('test');
+                controller.increment();
+              },
+              child: Text('Test'),
+            ),
+          ],
         ),
       ),
     );
